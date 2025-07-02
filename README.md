@@ -1,3 +1,12 @@
+# 📸 Life Highlights – SFU Surge Take-Home
+
+This is a responsive web app that allows users to create and view personal life highlights. Built with **Next.js 13+**, **TypeScript**, and **Tailwind CSS**, this project is a take-home assignment for SFU Surge.
+
+Users can:
+- See existing highlights fetched from the API.
+- Add a new highlight using a responsive modal form.
+- View fetched images related to each highlight via Openverse API.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
