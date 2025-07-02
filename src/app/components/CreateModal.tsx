@@ -10,11 +10,12 @@ export default function CreateModal() {
   };
 
   const handleSubmit = async () => {
-    const res = await fetch('https://surgetakehome.vercel.app/api/highlights', {
+    const res = await fetch('https://surgetakehome.vercel.app/api/postreview/locke', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        uuid: 'locke',
         title: form.title,
         location: form.location,
         description: form.description,
@@ -24,11 +25,14 @@ export default function CreateModal() {
     if (res.ok) {
       setForm({ title: '', location: '', description: '' });
       setOpen(false);
-      location.reload(); // Refresh to show new item
+      location.reload(); // Or ideally, update the local state instead of reloading
     } else {
+      const errorData = await res.json().catch(() => ({}));
+      console.error('Submission failed:', errorData);
       alert('Failed to submit highlight');
     }
   };
+
 
   return (
     <>

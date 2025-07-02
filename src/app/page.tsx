@@ -10,14 +10,15 @@ async function getReviewsWithImages() {
 
   const withImages = await Promise.all(
     data.map(async (item: any) => {
-      const imgRes = await fetch(`https://api.openverse.engineering/v1/images?q=${encodeURIComponent(item.title)}`);
+      const query = `${item.title}`;
+      const imgRes = await fetch(`https://api.openverse.engineering/v1/images?q=${encodeURIComponent(query)}`);
       const imgData = await imgRes.json();
       const imageUrl = imgData.results?.[0]?.thumbnail || null;
       return { ...item, imageUrl };
     })
   );
 
-  return withImages;
+  return withImages.reverse(); // 🔁 Newest first
 }
 
 export default async function Home() {
@@ -30,22 +31,19 @@ export default async function Home() {
       pb-6 sm:pb-10 lg:pb-10
       px-6 sm:px-10 lg:px-20
       space-y-6 sm:space-y-10
-      bg-[#FAFAFA]
+      bg-[#fafafa]
       mx-auto
     ">
-      <div className="mb-6">
-        <p className="text-sm font-semibold tracking-wide text-500 [color:#EC484B]">HIGHLIGHT</p>
+      <div className="mb-4">
+        <p className="text-sm font-semibold tracking-wide [color:#EC484B]">HIGHLIGHT</p>
         <h1 className="font-semibold [font-size:29px] [line-height:113%] [letter-spacing:-0.015em] text-black mb-2">
           What are the special moments of your life?
         </h1>
-        {/* 327, 600, 660 */}
-        <div className="w-[327px] sm:w-[500px] lg:w-[660px]">
+        <div className="w-[327px] sm:w-[500px] lg:w-[660px] h-[96px] sm:h-[48px] lg:h-[48px]">
           <p className="font-normal [font-size:16px] [line-height:150%] [letter-spacing:-0.0075em] [color:rgba(0,0,0,0.8)]">
             We believe every moment counts! Share your favorite highlights, unforgettable memories, and the stories that make your life shine.
           </p>
         </div>
-
-        {/* 327, 500,660 */}
       </div>
 
 
@@ -66,16 +64,8 @@ export default async function Home() {
             <p className="[font-size:14px] text-gray-500 mt-[-1px] mb-1">{item.location}</p>
             <p className="[font-size:14px] text-gray-700">{item.description}</p>
           </div>
-
-
-
-
-
         ))}
       </div>
-
-
-
 
       <CreateModal />
     </main>
