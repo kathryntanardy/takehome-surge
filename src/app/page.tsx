@@ -68,16 +68,16 @@ export default async function Home() {
           </div>
 
 
-
-
-
         ))}
       </div>
 
+      <main className="relative w-[375px] sm:w-[788px] lg:w-[1280px] ...">
+        {/* highlights list */}
+        <CreateModal />
+      </main>
 
 
 
-      <CreateModal />
     </main>
   );
 }
