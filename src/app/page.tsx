@@ -40,7 +40,7 @@ export default async function Home() {
       {/* Header section */}
       <div className="mb-6 w-[327px] sm:w-[600px] lg:w-[660px]">
         <p className="text-sm font-semibold tracking-wide text-500 [color:#EC484B] mb-3">HIGHLIGHT</p>
-        <h1 className="font-semibold [font-size:29px] [line-height:113%] [letter-spacing:-0.015em] text-black mb-2">
+        <h1 className="font-semibold text-black dark:text-black [font-size:29px] [line-height:113%] [letter-spacing:-0.015em] mb-2">
           What are the special moments of your life?
         </h1>
 
@@ -69,7 +69,7 @@ export default async function Home() {
             )}
 
             {/* Highlight content */}
-            <h2 className="font-semibold [font-size:16px]">{item.title}</h2>
+            <h2 className="text-black dark:text-black font-semibold [font-size:16px]">{item.title}</h2>
             <p className="[font-size:14px] text-gray-500 mt-[-1px] mb-1">{item.location}</p>
             <p className="[font-size:14px] text-gray-700">{item.description}</p>
           </div>
