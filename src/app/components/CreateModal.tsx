@@ -15,7 +15,7 @@ export default function CreateModal() {
 
   // Handle form submission
   const handleSubmit = async () => {
-    const res = await fetch('https://surgetakehome.vercel.app/api/postreview/locke', {
+    const res = await fetch('/api/proxy-postreview', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
